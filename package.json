@@ -1,0 +1,19 @@
+{
+  "name": "samehadaku-scraper",
+  "version": "1.0.0",
+  "description": "Samehadaku Scraper",
+  "main": "index.js",
+  "repository": "https://github.com/hansputera/samehadaku-scraper",
+  "author": "Hanif",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.22.0"
+  },
+  "scripts": {
+    "lint": "eslint . --fix"
+  }
+}
