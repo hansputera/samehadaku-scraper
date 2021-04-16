@@ -52,8 +52,8 @@ module.exports = class Samehada {
          * @returns {Promise<{page:number;data:any[];} | undefined>}
          */
         this.genre = async (genreName) => {
-            return await (require('./methods/getGenre'))(this.request, this.config, genreName);
-        }
+            return await (require("./methods/getGenre"))(this.request, this.config, genreName);
+        };
     }
 
     async init() {

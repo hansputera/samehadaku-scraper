@@ -1,4 +1,4 @@
-const { load } = require('cheerio');
+const { load } = require("cheerio");
 
 /**
  * 
@@ -8,35 +8,35 @@ const { load } = require('cheerio');
  */
 module.exports = async (request, config, genre) => {
     try {
-    const { data } = await request.get(config.genre(genre));
-    const $ = load(data);
+        const { data } = await request.get(config.genre(genre));
+        const $ = load(data);
 
-    const last_page = Number($(".pagination > a").last().text().trim());
-    const cards = [];
-    for (let i = 1; i <= last_page; i++) {
-        if (i == 1) {
-            const cardObj = {};
-            take($, cardObj);
-            cards[i-1] = {
-                page: i,
-                data: cardObj
-            };
-        } else {
-            const cardObj = {};
-            const { data: pageData } = await request.get(config.genre(genre) + `/page/${i}`);
-            const $page = load(pageData);
-            take($page, cardObj);
-            cards[i-1] = {
-                page: i,
-                data: cardObj
-            };
+        const last_page = Number($(".pagination > a").last().text().trim());
+        const cards = [];
+        for (let i = 1; i <= last_page; i++) {
+            if (i == 1) {
+                const cardObj = {};
+                take($, cardObj);
+                cards[i-1] = {
+                    page: i,
+                    data: cardObj
+                };
+            } else {
+                const cardObj = {};
+                const { data: pageData } = await request.get(config.genre(genre) + `/page/${i}`);
+                const $page = load(pageData);
+                take($page, cardObj);
+                cards[i-1] = {
+                    page: i,
+                    data: cardObj
+                };
+            }
         }
-    }
-    return cards;
+        return cards;
     } catch {
         return undefined;
     }
-}
+};
 
 function take($, cardObj) {
     const cardsEl = $(".relat > article");
