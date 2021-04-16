@@ -19,11 +19,11 @@ module.exports = async (request, config, anime) => {
         const lastPage = Number($(".pagination > a").last().text().trim());
         const cards = [];
         await handlePage(request, config, cards, lastPage, anime);
-        return cards;
+        return cards.filter(card => card);
     } else {
         const cards = [];
         await handlePage(request, config, cards, 1, anime);
-        return cards;
+        return cards.filter(card => card);
     }
 };
 

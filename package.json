@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Samehadaku Scraper",
   "main": "index.js",
+  "typings": "typings/index.d.ts",
   "repository": "https://github.com/hansputera/samehadaku-scraper",
   "author": "Hanif",
   "license": "MIT",
